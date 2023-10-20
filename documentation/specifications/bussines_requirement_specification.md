@@ -38,7 +38,7 @@ information about the product to make a search much more specific
 the transaction the user will have put his bank data and confirm the buy
 
 * Create, Delete and Edit Products
->cccccv
+>
 >>The admin should be able to realize a overall edit for the products 
 
 Secondary Priority
