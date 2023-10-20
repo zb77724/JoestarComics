@@ -1,14 +1,12 @@
-Styles Specification
-======================
+# Styles Specification
 
-Description
-----------------------
+
+## Description
 
 This document serves as a reference to keep styles consistent throughout the entirety of the project, from diagrams to actual user interfaces.  
 Here we set the standards that will be followed in all styling related work:
 
-Specification
-----------------------
+## Specification
 
 ### Color Palette
 
@@ -44,9 +42,17 @@ to make changes & dynamics more manageable. The variables and their uses are as 
 These are the default fonts & settings that will be used, they will be referenced as variables in css files with these exact same names,  
 to make changes & dynamics more manageable. The variables and their uses are as described below:
 
-- f_size: 1rem
+- fs_size: 1rem
 
-    Specifies the font size of an element.
+    Specifies the font size of small text.
+
+- fg_size: 2rem
+
+    Specifies the font size for major headings.
+
+- fm_size: 1.5rem
+
+    Specifies the font size for secondary headings.
 
 - h_family: 'Josefin Sans' 'Poiret One' 'Aoboshi One' 'Century Gothic' 'Arial'
 
