@@ -29,6 +29,10 @@ to make changes & dynamics more manageable. The variables and their uses are as 
 
     A soft yet distinctive color used to identify interactive elements or hotspots.
 
+- dis_color: #777
+
+    A tone that indicates that some element is disabled.
+
 - highlight_color: #FF449E
 
     A stronger color used to highlight active elements, e.g. an active link or button or an input outline.
