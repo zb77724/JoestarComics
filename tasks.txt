@@ -1,0 +1,5 @@
+Database ER diagram & database update // 50% // zack
+API Reference update // v // zack
+Interface design update // p // mauro
+Requirements specifications update // p // zack
+Use case Diagram update // v // mauro
