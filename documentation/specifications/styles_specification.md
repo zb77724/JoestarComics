@@ -33,6 +33,10 @@ to make changes & dynamics more manageable. The variables and their uses are as 
 
     A tone that indicates that some element is disabled.
 
+- dis_text: #000
+
+    Text inside a disabled element.
+
 - highlight_color: #FF449E
 
     A stronger color used to highlight active elements, e.g. an active link or button or an input outline.
@@ -44,6 +48,7 @@ to make changes & dynamics more manageable. The variables and their uses are as 
     - content_color: #FFF
     - hot_color: #FF6F07
     - dis_color: #EEE
+    - dis_text: #000
     - highlight_color: #6438E2
 
 ### Typography

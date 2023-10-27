@@ -2,7 +2,7 @@
 
 ## Document Description
 
-This is the first version of the API Reference, which aims to explain with as much detail as possible how the server will interact with the frontend, specifying what data of what type should be sent to a specific endpoint and in which format for the request to be successfully processed, as well as the structure of the server's responses, in order to facilitate the consumption of the API. In the next version this document will also specify details about authentication & authorization related data that should be sent and returned in order to ensure the system's security.
+This is the API Reference, which aims to explain with as much detail as possible how the server will interact with the frontend, specifying what data of what type should be sent to a specific endpoint and in which format for the request to be successfully processed, as well as the structure of the server's responses, in order to facilitate the consumption of the API. In the next version this document will also specify details about authentication & authorization related data that should be sent and returned in order to ensure the system's security.
 
 ## Notation Glossary
 
@@ -20,7 +20,7 @@ This is the first version of the API Reference, which aims to explain with as mu
 
 /api
 
-    /countries
+    /countries ?> PARAMS: id || name
 
         GET
         <--- {
@@ -50,7 +50,7 @@ This is the first version of the API Reference, which aims to explain with as mu
 
     /languages
 
-        GET
+        GET ?> PARAMS: id || language
         <--- {
             status: 200,
             languages: [
@@ -78,7 +78,7 @@ This is the first version of the API Reference, which aims to explain with as mu
     
     /age_ratings
 
-        GET
+        GET ?> PARAMS: id || age_rating
         <--- {
             status: 200,
             age_ratings: [
@@ -106,13 +106,14 @@ This is the first version of the API Reference, which aims to explain with as mu
 
     /genres
 
-        GET ?> PARAMS: age_rating
+        GET ?> PARAMS: id || genre || age_rating_id
         <--- {
             status: 200,
             genres: [
                 {
                     id: <int>,
-                    genre: <string>
+                    genre: <string>,
+                    age_rating_id: <int>
                 }
             ]
         }
@@ -121,7 +122,8 @@ This is the first version of the API Reference, which aims to explain with as mu
 
         POST
         ---> {
-            genre: <string> **
+            genre: <string> **,
+            age_rating_id: <int> **
         }
         <--- {
             status: 201,
@@ -134,13 +136,16 @@ This is the first version of the API Reference, which aims to explain with as mu
     
     /series
 
-        GET ?> PARAMS: genre_id
+        GET ?> PARAMS: id || name
+
+        ''
+
         <--- {
             status: 200,
             series: [
                 {
                     id: <int>,
-                    series: <string>
+                    name: <string>
                 }
             ]
         }
@@ -149,7 +154,7 @@ This is the first version of the API Reference, which aims to explain with as mu
 
         POST
         ---> {
-            series: <string> **
+            name: <string> **
         }
         <--- {
             status: 201,
@@ -160,16 +165,15 @@ This is the first version of the API Reference, which aims to explain with as mu
     ****************************************************************************
     ****************************************************************************
 
-    /publishers
+    /categories
 
-        GET ?> PARAMS: country_id
+        GET ?> PARAMS: id || name
         <--- {
             status: 200,
-            publishers: [
+            categories: [
                 {
                     id: <int>,
-                    name: <string>,
-                    country_id: <string>
+                    name: <string>
                 }
             ]
         }
@@ -179,35 +183,6 @@ This is the first version of the API Reference, which aims to explain with as mu
         POST
         ---> {
             name: <string> **,
-            country_id: <string> **
-        }
-        <--- {
-            status: 201,
-            message: "Publisher added successfully"
-        }
-
-    ****************************************************************************
-    ****************************************************************************
-    ****************************************************************************
-
-    /categories
-
-        GET
-        <--- {
-            status: 200,
-            categories: [
-                {
-                    id: <int>,
-                    category: <string>
-                }
-            ]
-        }
-
-        ****************************************************************************
-
-        POST
-        ---> {
-            category: <string> **,
         }
         <--- {
             status: 201,
@@ -220,14 +195,14 @@ This is the first version of the API Reference, which aims to explain with as mu
 
     /subcategories
 
-        GET ?> PARAMS: category_id
+        GET ?> PARAMS: id || category_id || name
         <--- {
             status: 200,
             subcategories: [
                 {
                     id: <int>,
                     category_id: <int>,
-                    subcategory: <string>
+                    name: <string>
                 }
             ]
         }
@@ -237,7 +212,7 @@ This is the first version of the API Reference, which aims to explain with as mu
         POST
         ---> {
             category_id: <id> **,
-            subcategory: <string> **
+            name: <string> **
         }
         <--- {
             status: 201,
@@ -250,12 +225,13 @@ This is the first version of the API Reference, which aims to explain with as mu
 
     /sizes
 
-        GET
+        GET ?> PARAMS: id || subcategory_id || size
         <--- {
             status: 200,
             sizes: [
                 {
                     id: <int>,
+                    subcategory_id: <int>,
                     size: <string>
                 }
             ]
@@ -265,6 +241,7 @@ This is the first version of the API Reference, which aims to explain with as mu
 
         POST
         ---> {
+            subcategory_id: <int> **,
             size: <string> **
         }
         <--- {
@@ -276,9 +253,39 @@ This is the first version of the API Reference, which aims to explain with as mu
     ****************************************************************************
     ****************************************************************************
 
+    /materials
+
+        GET ?> PARAMS: id || subcategory_id || material
+        <--- {
+            status: 200,
+            materials: [
+                {
+                    id: <int>,
+                    subcategory_id: <int>,
+                    material: <string>
+                }
+            ]
+        }
+
+        ****************************************************************************
+
+        POST
+        ---> {
+            subcategory_id: <int> **,
+            material: <string> **
+        }
+        <--- {
+            status: 201,
+            message: "Material added successfully"
+        }
+
+    ****************************************************************************
+    ****************************************************************************
+    ****************************************************************************
+
     /authors
 
-        GET ?> PARAMS: country_id
+        GET ?> PARAMS: id || name || country_id
         <--- {
             status: 200,
             authors: [
@@ -306,15 +313,15 @@ This is the first version of the API Reference, which aims to explain with as mu
     ****************************************************************************
     ****************************************************************************
 
-    /producers
+    /companies
 
-        GET ?> PARAMS: country_id
+        GET ?> PARAMS: id || company || country_id
         <--- {
             status: 200,
-            producers: [
+            companies: [
                 {
                     id: <int>,
-                    producer: <string>,
+                    company: <string>,
                     country_id: <int>
                 }
             ]
@@ -324,12 +331,12 @@ This is the first version of the API Reference, which aims to explain with as mu
 
         POST
         ---> {
-            producer: <string> **,
+            company: <string> **,
             country_id: <int> **
         }
         <--- {
             status: 201,
-            message: "Producer added successfully"
+            message: "Company added successfully"
         }
 
     ****************************************************************************
@@ -338,7 +345,7 @@ This is the first version of the API Reference, which aims to explain with as mu
 
     /clothes
 
-        GET ?> PARAMS: id || product_id || subcategory_id &|| size_id
+        GET ?> PARAMS: id || product_id || subcategory_id &|| size_id &|| color_id &|| material_id
         <--- {
             status: 200,
             clothes: [
@@ -346,10 +353,16 @@ This is the first version of the API Reference, which aims to explain with as mu
                     id: <int>,
                     product_id: <int>,
                     subcategory_id: <int>,
-                    size_id: <int>
+                    size_id: <int>,
+                    color_id <int>,
+                    material_id <int>
                 }
             ]
         }
+
+        <!-- get all sizes where subcategory is ring. -->
+
+        <!-- refactor sizes & materials for different subcategories. -->
 
         ****************************************************************************
 
@@ -357,7 +370,9 @@ This is the first version of the API Reference, which aims to explain with as mu
         ---> {
             product_id: <int> **,
             subcategory_id: <int> **,
-            size_id: <int> **
+            size_id: <int> **,
+            color_id <int> **,
+            material_id <int> **
         }
         <--- {
             status: 201,
@@ -370,7 +385,7 @@ This is the first version of the API Reference, which aims to explain with as mu
 
     /collectibles
 
-        GET ?> PARAMS: id || product_id || subcategory_id &|| series_id &|| producer_id
+        GET ?> PARAMS: id || product_id || subcategory_id &|| company_id
         <--- {
             status: 200,
             collectibles: [
@@ -378,8 +393,7 @@ This is the first version of the API Reference, which aims to explain with as mu
                     id: <int>,
                     product_id: <int>,
                     subcategory_id: <int>,
-                    series_id: <int>,
-                    producer_id: <int>
+                    company_id: <int>
                 }
             ]
         }
@@ -390,8 +404,7 @@ This is the first version of the API Reference, which aims to explain with as mu
         ---> {
                     product_id: <int> **,
                     subcategory_id: <int> **,
-                    series_id: <int> **,
-                    producer_id: <int> **
+                    company_id: <int> **
         }
         <--- {
             status: 201,
@@ -404,18 +417,18 @@ This is the first version of the API Reference, which aims to explain with as mu
 
     /comics
 
-        GET ?> PARAMS: id || product_id || series_id &|| publisher_id &|| author_id &|| release_date &|| genre_id &|| language_id &|| colored
+        GET ?> PARAMS: id || product_id || company_id &|| author_id &|| release_date &|| genre_id &|| subcategory_id &|| language_id &|| colored
         <--- {
             status: 200,
             comics: [
                 {
                     id: <int>,
                     product_id: <int>,
-                    series_id: <int>,
-                    publisher_id: <int>,
+                    company_id: <int>,
                     author_id: <int>,
                     release_date: <string> (format: yyyy/mm/dd),
                     genre_id: <int>,
+                    subcategory_id: <int>,
                     language_id: <int>,
                     colored: boolean
                 }
@@ -428,10 +441,9 @@ This is the first version of the API Reference, which aims to explain with as mu
         ---> {
             product_id: <int> **,
             series_id: <int> **,
-            publisher_id: <int> **,
-            author_id: <int> **,
+            company_id: <int> **,
             release_date: <string> (format: yyyy/mm/dd) **,
-            genre_id: <int> **,
+            subcategory_id: <int> **,
             language_id: <int> **,
             colored: <boolean> **
         }
@@ -514,14 +526,16 @@ This is the first version of the API Reference, which aims to explain with as mu
 
     /users
 
-        GET ?> id || username
+        GET ?> id || username || email
         <--- {
             status: 200,
             users: [
                 {
                     id: <int>,
                     username: <string>,
-                    email: <string>
+                    email: <string>,
+                    role_id: <int>,
+                    pfp_path: <string>
                 }
             ]
         }
@@ -545,6 +559,7 @@ This is the first version of the API Reference, which aims to explain with as mu
 
         PUT PARAMS: id
         ---> {
+            username: <string>,
             email: <string>,
             password: <string>
         }
@@ -572,7 +587,7 @@ This is the first version of the API Reference, which aims to explain with as mu
             username: <string> **,
             password: <string> **,
             email: <string> **,
-            pfp_path: <string>,
+            pfp_path: <string>
         }
         <--- {
             status: 201,
@@ -584,3 +599,7 @@ This is the first version of the API Reference, which aims to explain with as mu
     ****************************************************************************
 
     TODO....
+
+
+
+// Figure out how to more efficiently send images and add the signin and logout endpoints.
