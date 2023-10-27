@@ -10,7 +10,7 @@ This document describes the technical requirements that are expected of the syst
 
     It is required in order to efficiently store information about customers, products & orders, and have that information be accessible for the purposes of the system. For this project, a relational sql database will be implemented, using MYSQL as a management system & phpmyadmin as an administration tool.
 
-    The database must have tables for users, their orders, comments & announcements; as well as products and their categories.
+    The database must have tables for users, their orders, comments & announcements; as well as products & their details; their categories & their details & their subcategories.
 
 ### API
 
@@ -40,7 +40,7 @@ This document describes the technical requirements that are expected of the syst
     
     - Cart
 
-        Customers must be able to easily add as many products as they wish, in the quantities specified, to a cart or list of products which minimalistically displays products (only specifiying key details such as the name, price & quantity) and a total price at the end, these products should be removable by the customers, and their quantities, decreased or increased. From here, the customers should be able to make an order which will then be processed in the backend for statistics generation, order registration & order delivery.
+        Customers must be able to easily add as many products as they wish, in the quantities specified, to a cart or list of products which minimalistically displays products (only specifiying key details such as the name, price & quantity) and a total price at the end, these products should be removable by the customers, and their quantities, decreased or increased. From here, the customers should be able to make an order which will then be processed in the backend for statistics generation, order registration & order delivery. Visitors not logged in are restricted to view only mode, that is, they cannot add products to the cart and make purchases.
     
     - Transactions
 
@@ -58,4 +58,14 @@ This document describes the technical requirements that are expected of the syst
 
         Users must be able to create, view & update their profiles, including an image, name, password, email & country. This data will be used for identifying & contacting the user, as well as gathering sales related statistics.
 
-     
+    - History
+
+        Orders should be stored in a history page where the users can follow their state or view other relevant information. The orders need to be sorted and filtered by the users, same as products, but only by date, total price & state.
+    
+    - Contact
+
+        Users should be able to contact the business via email.
+    
+    - Product Edition
+
+        When in editor mode, an admin can modify a product's general data (e.g: the name or description) or its more specific category data (e.g. author or material); Increase or decrease the product's stock & delete (more specifically disable the product).

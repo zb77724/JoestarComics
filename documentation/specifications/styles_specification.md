@@ -37,6 +37,15 @@ to make changes & dynamics more manageable. The variables and their uses are as 
 
     A stronger color used to highlight active elements, e.g. an active link or button or an input outline.
 
+## Dark Mode Palette
+
+    - main_color: #222
+    - secondary_color: #777
+    - content_color: #FFF
+    - hot_color: #FF6F07
+    - dis_color: #EEE
+    - highlight_color: #6438E2
+
 ### Typography
 
 These are the default fonts & settings that will be used, they will be referenced as variables in css files with these exact same names,  

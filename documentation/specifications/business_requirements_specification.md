@@ -37,7 +37,7 @@ The Administrators should be able to upload new products, make anouncements to c
 
 - Create, Delete and Edit Products
 
-    The admin should be able to upload new products, as well as delete or modify existing ones.
+    The admin should be able to upload new products, as well as delete, modify existing ones or modify their quantities.
 
 - Rating
     
@@ -50,3 +50,11 @@ The Administrators should be able to upload new products, make anouncements to c
 - View Sales Statistics
 
     The admin should be able to access the sales statistics in a visually appealing & organized way, in order to gather market information, such as this month's most sold product.
+
+- View order history
+
+    Users should be able to view information about their current & previous orders, as well as filter & sort them.
+
+- Manage anouncements
+
+    Admins should be able to anounce new releases, products or discounts to the community, and later modify them or delete them.
