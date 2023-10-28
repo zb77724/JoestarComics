@@ -16,13 +16,6 @@ noticias, así como también visualizar estadísticas de ventas de categorías, 
 El proyecto se encuentra en una etapa en la que la documentación llevada hasta ahora puede sufrir ligeras modificaciones, luego de haber pasado por los cambios más grandes, como por ejemplo, la primera versión de la base de datos, la cual por una evaluación previa se tuvo que
 modificar para que el sistema sea más eficiente y mejor especificado.
 
-## Actividades que realiza el usuario
-
-- Búsqueda de productos a través del nombre (por la barra de búsqueda) o realizar búsquedas con mas precisión por medio de
-otros datos como lo serian el autor, la franquicia, la serie, etc (filtro).
-
-- Compra de productos, de una forma intuitiva
-
 ## Propuesta
 
 ### Alternativas
@@ -109,3 +102,52 @@ Las interfaces de usuario fueron cuidadosamente graficadas y diseñadas con la s
 ## Planificación
 
 Las tareas serán asignadas dinámicamente entre los dos miembros del equipo, sin embargo, las tareas asignadas serán cuidadosamente seleccionadas para poder ser integradas inmediatamente, agregando una nueva funcionalidad al sistema y contribuyendo a la aceleración del desarrollo de una versión.
+
+## Actividades que realiza el usuario
+
+Entre las actividades que realizará el usuario
+
+### Usuario (Cliente)
+
+- Busqueda de productos a través del nombre (por la barra de búsqueda) o realizar búsquedas con mas precisión por medio de
+otros datos como lo serian el autor, la serie, etc (filtro).
+
+- Compra de productos, el usuario al encontrar un articulo de su interés tendrá la oportunidad de agregarlo al carrito 
+(desde la lista de productos o desde los detalles del producto) en donde se visualizará el precio total del o los productos,
+para efectuar la compra se deberán poner sus datos bancarios y listo, aclarando, otra vez el usuario no tendrá permitida
+esta acción si no posee una cuenta.
+
+- Revisión de historial, se podrá verificar más información de las compras realizadas, el estado, precio, fecha de encargo,
+si se quiere ser mas especifico el historial contara con un filtro adaptado al historial. 
+
+### Usuario (Administrador)
+
+- Creación, aumento, modificación y desactivación, el administrador cuenta con la capacidad de alterar todo lo relacionado
+a los productos, cosas tales como el apartdo para la creación de productos, opciones adicionales en la lista de productos
+de la página principal y la adición de más unidades de un producto que se haya acabado.
+
+- Creaccion de noticias relacionadas a la comunidad, el administrador al igual que con los productos será
+capaz de subir noticias (descuentos, proximos productos o lanzamientos relacionados a la pagina o al mundo Geek en general, etc).
+
+- Revisión de estadisticas, el administrador podrá tener constancia del progreso que la empresa está teniendo financieramente, ya
+sean las categorías en general, las subcategorías o productos.
+
+## Software y/o metodos manuales existentes
+
+El proyecto, hasta la fecha cuenta con una documentación.
+
+## Dificultades
+
+Algunas de las dificultades que podriamos enfrentar en ese proyecto van a ser enumeradas:
+
+### Documentación y Planificación
+
+- Desacuerdos relacionados a cómo se está llevando el trabajo o algunas otras caracterísiticas.
+
+- Falta de experiencia con las tareas asignadas.
+
+- Falta de familiaridad con las herramientas utilizadas.
+
+### Desarollo
+
+...
