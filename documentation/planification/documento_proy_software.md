@@ -45,3 +45,23 @@ capaz de subir noticias (descuentos, proximos productos o lanzamientos relaciona
 
 - Revision de estadisticas, el administrador podra tener constacia de el progreso que la pagina esta teniendo financieramente, ya
 sean las categorias en general o las subcategorias o incluso el rendiiento de la pagina en general
+
+## Software y/o metodos manuales existentes
+
+El proyecto, hasta la fecha cuenta con una documentación
+
+## Dificultades
+
+Algunas de las dificultades que podriamos enfrentar en ese proyecto van a ser enumeradas:
+
+### Planificacion
+
+- Desacuerdos relacionados a como se esta llevando el trabajo o alguna otra caracterisiticas
+
+- Falta de experiencia con las tareas asignadas
+
+-
+
+-
+
+### Desarollo
