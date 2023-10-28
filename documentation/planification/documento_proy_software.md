@@ -2,7 +2,7 @@
 
 ## Objetivo 
 
-El objetivo que se tiene en mente en cuanto al proyecto es presentar una pagina relacionada al mundo Geek en la cual se va 
+El objetivo que se tiene en mente en cuanto al proyecto es desarrollar una aplicación web relacionada al mundo Geek en la cual se va 
 a presentar un amplio stock de productos (comics, figuras, ropa, etc) con sus datos organizados y especificados 
 eficientemente para la realización de búsquedas mas precisas y evitar la confusión con otros articulos que comparten las
 mismas caracterísiticas. Los usuarios corrientes deberán ser capaces de realizar búsquedas y compras mientras que los 
@@ -71,7 +71,7 @@ La elección de la alternativa se basa en los criterios del trabajo asignado, a�
 
 - Economía
 
-    Nodejs puede manejar un mayor volumen de información simultáneamente de forma eficaz, lo que reduce los recursos necesarios, además se utiliza el mismo lenguaje de programación que en el frontend por lo que no se require equipo especializado en otro lenguaje lo que en otra instancia tambiém reduciría los costos del proyecto.
+    Nodejs puede manejar un mayor volumen de información simultáneamente de forma eficaz, lo que reduce los recursos necesarios, además se utiliza el mismo lenguaje de programación que en el frontend por lo que no se require equipo especializado en otro lenguaje lo que en otra instancia también reduciría los costos del proyecto.
 
 ## Descripción
 
