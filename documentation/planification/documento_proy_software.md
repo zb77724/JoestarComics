@@ -57,7 +57,7 @@ Algunas de las dificultades que podriamos enfrentar en este proyecto pueden ser:
 
 ### Tecnologias dispoibles
 
-El desarrollo va a ser llevado a cabo principalmente por dos tecnologiqs esencialea, una encargada de frontend y la otra del backend, en el proyecto se va a hacer uso de la libreria React js para el frontend y para el backend se va a hacer uso de node js y express js.
+El desarrollo va a ser llevado a cabo principalmente por dos tecnologias esenciales, una encargada de frontend y la otra del backend, en el proyecto se va a hacer uso de la libreria React js para el frontend y para el backend se va a hacer uso de node js y express js.
 
 ### Ventajas 
 
