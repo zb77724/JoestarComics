@@ -13,8 +13,71 @@ noticias, así como también visualizar estadísticas de ventas de categorías, 
 
 ### Descripción de la situación actual
 
-El proyecto se encuentra en una etapa en la que la documentación llevada hasta ahora puede sufrir ligeras modificaciones, luego de haber pasado por los cambios más grandes, como por ejemplo, la primera versión de la base de datos, la cual por una evaluación previa se tuvo que
-modificar para que el sistema sea más eficiente y mejor especificado.
+El proyecto se encuentra en una etapa en la que la documentación llevada hasta ahora puede sufrir ligeras modificaciones, luego de haber pasado por los cambios más grandes, como por ejemplo, la primera versión de la base de datos, la cual por una evaluación previa se tuvo que modificar para que el sistema sea más eficiente y mejor especificado.
+
+## Actividades que realiza el usuario
+
+Entre las actividades que realizará el usuario
+
+### Usuario (Cliente)
+
+- Busqueda de productos atraves del nombre (por la barra de busqueda) o realizar busquedas con mas precision por medio de otros datos como lo serian el autor, la franquicia, la serie, etc (filtro).
+
+- Compra de productos, el usuario al encontrar un articulo de su interes tendra la oportunidad de agregarlo al carrito (desde la lista de productos o desde los detalles del producto) en se visualizara el precio total del o los productos, para afectuar la compra se deberan poner sus datos bancarios y listo, aclarando, otra ve el usuario no tendra permitida esta accion si no posee una cuenta.
+
+- Revision de historial, se podra verificar mas informacion de las compras realizadas, el estado, precio, fecha de encargo, si se quiere ser mas especifico el historial contara con un filtro adaptado al historial.
+
+### Usuario (Administrador)
+
+- Creacion, aumento, modificacion y "eliminacion", el adminitrador cuenta con la capacidad de alterar todo lo relacionado a los productos, altgunas tales como el apartdo para creacion de productos, opciones adicionales en la lista de producos de la pagina principal y la adicion de mas unidades de un producto que se haya acabado.
+
+- Creaccion de noticia relacionadas a la comunidad del proyecto, el administrador al igual que conn los productos sera capaz de subir noticias (descuentos, proximos productos o lanzamientos relacionados a la pagina o al mundo Geek en general, etc).
+
+- Revision de estadisticas, el administrador podra tener constacia de el progreso que la pagina esta teniendo financieramente, ya sean las categorias en general o las subcategorias o incluso el rendiiento de la pagina en general.
+
+## Software y/o metodos manuales existentes
+
+Hasta el momento el proyecto cuenta unicamente con una minuciosa documentacion en la cual se especifican el diseño, el comportamiento de la api, de que forma se va a componer la base de datos, etc.
+
+## Dificultades
+
+Algunas de las dificultades que podriamos enfrentar en este proyecto pueden ser:
+
+- Desacuerdos relacionados a las partes ya establecidas en el proyecto.
+
+- Aumento de la complejidad del proyecto haciendo que se tenga que repetir la fase en la que se encuentre  para que se acople de la mejor manera a los cambios.
+
+- Poca documentacion sobre alguna implementacion en particular, dejadndo ese apartadoa la imaginacion y muy poco detallado.
+
+- Empezar la fase de desarrollo en un timmpo tardio por extenderse con la fase de requerimientos o dseño.
+
+- Implementar una idea mejor en la fase de desarrollo pero que no haya sido documentada en la documentacion previa, no seria problema con cambios menores pero si con cambios de gran magnitud.
+
+## Oportunidades de desarollo de Software
+
+### Tecnologias dispoibles
+
+El desarrollo va a ser llevado a cabo principalmente por dos tecnologiqs esencialea, una encargada de frontend y la otra del backend, en el proyecto se va a hacer uso de la libreria React js para el frontend y para el backend se va a hacer uso de node js y express js.
+
+### Ventajas 
+
+Las ventajas seran dividias entre las del frontend y el backend.
+
+#### Frontend
+
+- El uso de React para el frontend sera de utilidad ya que los componentes que se hagan pueden ser reutilizados para otras partes del proyecto, no perdiendo tanto tiempo para crear un nuevo componente.
+
+- Los componentes que se vayan creando son perfectamente escalabes, siendo primeramente diseñados para su finalidad principal y posteriormente mejorados.
+
+- Acceso al estado previo de cualquier componente, uti en las situaciones en las que se requiera volver a ver el estado anterior
+ 
+#### Backend
+
+- 
+
+-
+
+-
 
 ## Propuesta
 
@@ -102,51 +165,6 @@ Las interfaces de usuario fueron cuidadosamente graficadas y diseñadas con la s
 ## Planificación
 
 Las tareas serán asignadas dinámicamente entre los dos miembros del equipo, sin embargo, las tareas asignadas serán cuidadosamente seleccionadas para poder ser integradas inmediatamente, agregando una nueva funcionalidad al sistema y contribuyendo a la aceleración del desarrollo de una versión.
-
-## Actividades que realiza el usuario
-
-Entre las actividades que realizará el usuario
-
-### Usuario (Cliente)
-
-- Busqueda de productos a través del nombre (por la barra de búsqueda) o realizar búsquedas con mas precisión por medio de
-otros datos como lo serian el autor, la serie, etc (filtro).
-
-- Compra de productos, el usuario al encontrar un articulo de su interés tendrá la oportunidad de agregarlo al carrito 
-(desde la lista de productos o desde los detalles del producto) en donde se visualizará el precio total del o los productos,
-para efectuar la compra se deberán poner sus datos bancarios y listo, aclarando, otra vez el usuario no tendrá permitida
-esta acción si no posee una cuenta.
-
-- Revisión de historial, se podrá verificar más información de las compras realizadas, el estado, precio, fecha de encargo,
-si se quiere ser mas especifico el historial contara con un filtro adaptado al historial. 
-
-### Usuario (Administrador)
-
-- Creación, aumento, modificación y desactivación, el administrador cuenta con la capacidad de alterar todo lo relacionado
-a los productos, cosas tales como el apartdo para la creación de productos, opciones adicionales en la lista de productos
-de la página principal y la adición de más unidades de un producto que se haya acabado.
-
-- Creaccion de noticias relacionadas a la comunidad, el administrador al igual que con los productos será
-capaz de subir noticias (descuentos, proximos productos o lanzamientos relacionados a la pagina o al mundo Geek en general, etc).
-
-- Revisión de estadisticas, el administrador podrá tener constancia del progreso que la empresa está teniendo financieramente, ya
-sean las categorías en general, las subcategorías o productos.
-
-## Software y/o metodos manuales existentes
-
-El proyecto, hasta la fecha cuenta con una documentación.
-
-## Dificultades
-
-Algunas de las dificultades que podriamos enfrentar en ese proyecto van a ser enumeradas:
-
-### Documentación y Planificación
-
-- Desacuerdos relacionados a cómo se está llevando el trabajo o algunas otras caracterísiticas.
-
-- Falta de experiencia con las tareas asignadas.
-
-- Falta de familiaridad con las herramientas utilizadas.
 
 ### Desarollo
 
