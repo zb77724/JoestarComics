@@ -16,10 +16,41 @@ This is the API Reference, which aims to explain with as much detail as possible
 - [<type>] indicates an array whose elements are of the specified type
 - PARAMS refers to the request parameters
 - ? represents a conditional data return that may or may not happen according to a condition within parentheses "()" before the sign
+- [] after a method represent required header information, like the Content-Type for example.
 
 ## Routes Tree
 
 /api
+
+    /ratings
+        
+        GET ?> PARAMS: product_id
+        <--- {
+            id: <int>,
+            product_id: <int>,
+            5_stars: <int>,
+            4_stars: <int>,
+            3_stars: <int>,
+            2_stars: <int>,
+            1_stars: <int>
+        }
+
+        ****************************************************************************
+
+        PUT ?> PARAMS: product_id
+        ---> {
+            5_stars: <int> **,
+            4_stars: <int> **,
+            3_stars: <int> **,
+            2_stars: <int> **,
+            1_stars: <int> **
+        }
+
+        <!-- The server will calculate the average by using the stars data in the database, when a user increases or decreases a star's count, it changes the average, it's important to note that, in order to update the rating, an object containing the current stars' count should be provided along the increased or decreased star's count. -->
+    
+    ****************************************************************************
+    ****************************************************************************
+    ****************************************************************************
 
     /countries ?> PARAMS: id
 
@@ -138,9 +169,6 @@ This is the API Reference, which aims to explain with as much detail as possible
     /series
 
         GET ?> PARAMS: id
-
-        ''
-
         <--- {
             status: 200,
             series: [
@@ -218,6 +246,34 @@ This is the API Reference, which aims to explain with as much detail as possible
         <--- {
             status: 201,
             message: "Subcategory added successfully"
+        }
+
+    ****************************************************************************
+    ****************************************************************************
+    ****************************************************************************
+
+    /colors
+
+        GET ?> PARAMS: id
+        <--- {
+            status: 200,
+            colors: [
+                {
+                    id: <int>,
+                    color: <string>
+                }
+            ]
+        }
+
+        ****************************************************************************
+
+        POST
+        ---> {
+            color: <string> **
+        }
+        <--- {
+            status: 201,
+            message: "Color added successfully"
         }
 
     ****************************************************************************
@@ -346,35 +402,15 @@ This is the API Reference, which aims to explain with as much detail as possible
 
     /clothes
 
-        GET ?> PARAMS: id || product_id || subcategory_id &|| size_id &|| color_id &|| material_id
-        <--- {
-            status: 200,
-            clothes: [
-                {
-                    id: <int>,
-                    product_id: <int>,
-                    subcategory_id: <int>,
-                    size_id: <int>,
-                    color_id <int>,
-                    material_id <int>
-                }
-            ]
-        }
-
-        ****************************************************************************
-
-        POST
-        ---> {
-            product_id: <int> **,
-            subcategory_id: <int> **,
-            size_id: <int> **,
-            color_id <int> **,
-            material_id <int> **
-        }
-        <--- {
-            status: 201,
-            message: "Item saved successfully"
-        }
+        PUT ?> PARAMS: product_id
+            <--- {
+                subcategory_id: <int> **,
+                size_id: <int> **,
+                colors_id: [<int>] **,
+                material_id: <int> **
+            }
+        
+        <!-- Category endpoints contain only one method to update product category details, this will work by passing in a full object which will replace the existing one, so it's essential to somehow save the existing data and send it along with the modified data, or else, the server will return a bad request error (400). -->
     
     ****************************************************************************
     ****************************************************************************
@@ -382,31 +418,13 @@ This is the API Reference, which aims to explain with as much detail as possible
 
     /collectibles
 
-        GET ?> PARAMS: id || product_id || subcategory_id &|| company_id
-        <--- {
-            status: 200,
-            collectibles: [
-                {
-                    id: <int>,
-                    product_id: <int>,
-                    subcategory_id: <int>,
-                    company_id: <int>
-                }
-            ]
-        }
-
-        ****************************************************************************
-
-        POST
-        ---> {
-                    product_id: <int> **,
-                    subcategory_id: <int> **,
-                    company_id: <int> **
-        }
-        <--- {
-            status: 201,
-            message: "Item saved successfully"
-        }
+        PUT ?> PARAMS: product_id
+            <--- {
+                subcategory_id: <int> **,
+                company_id: <int> **
+            }
+        
+        <!-- Category endpoints contain only one method to update product category details, this will work by passing in a full object which will replace the existing one, so it's essential to somehow save the existing data and send it along with the modified data, or else, the server will return a bad request error (400). -->
 
     ****************************************************************************
     ****************************************************************************
@@ -414,40 +432,18 @@ This is the API Reference, which aims to explain with as much detail as possible
 
     /comics
 
-        GET ?> PARAMS: id || product_id || company_id &|| author_id &|| release_date &|| genre_id &|| subcategory_id &|| language_id &|| colored
-        <--- {
-            status: 200,
-            comics: [
-                {
-                    id: <int>,
-                    product_id: <int>,
-                    company_id: <int>,
-                    author_id: <int>,
-                    release_date: <string> (format: yyyy/mm/dd),
-                    genre_id: <int>,
-                    subcategory_id: <int>,
-                    language_id: <int>,
-                    colored: boolean
-                }
-            ]
-        }
+        PUT ?> PARAMS: product_id
+            <--- {
+                subcategory_id: <int> **,
+                company_id: <int> **,
+                authors_id: <int> **,
+                genre_id: <int> **,
+                language_id: <int> **,
+                color: <boolean> **
+            }
 
-        ****************************************************************************
-
-        POST
-        ---> {
-            product_id: <int> **,
-            series_id: <int> **,
-            company_id: <int> **,
-            release_date: <string> (format: yyyy/mm/dd) **,
-            subcategory_id: <int> **,
-            language_id: <int> **,
-            colored: <boolean> **
-        }
-        <--- {
-            status: 201,
-            message: "Item saved successfully"
-        }
+        
+        <!-- Category endpoints contain only one method to update product category details, this will work by passing in a full object which will replace the existing one, so it's essential to somehow save the existing data and send it along with the modified data, or else, the server will return a bad request error (400). -->
 
     ****************************************************************************
     ****************************************************************************
@@ -455,7 +451,7 @@ This is the API Reference, which aims to explain with as much detail as possible
 
     /products
 
-        GET ?> PARAMS: id || name &|| category_id &|| age_rating_id &|| country_id
+        GET ?> PARAMS: id
         <--- {
             status: 200,
             products: [
@@ -463,29 +459,84 @@ This is the API Reference, which aims to explain with as much detail as possible
                     id: <int>,
                     name: <string>,
                     description: <string>,
-                    category_id: <int>,
+                    category: {
+                        id: <int>,
+                        name: <string>
+                    },
                     category_details:
-                        (category_id = collectibles) ?: {
-                            subcategory_id: <int>,
-                            company_id: <int>
+                        (category = collectibles) ?: {
+                            subcategory: {
+                                id: <int>,
+                                category_id: <int>,
+                                name: <string>
+                            },
+                            company: {
+                                id: <int>,
+                                name: <string>,
+                                country_id: <int>
+                            }
                         }
-                        (category_id = comics) ?: {
-                            company_id: <int>,
-                            author_id: <int>,
+                        (category = comics) ?: {
+                            subcategory: {
+                                id: <int>,
+                                category_id: <int>,
+                                name: <string>
+                            },
+                            company: {
+                                id: <int>,
+                                name: <string>,
+                                country_id: <int>
+                            },
+                            authors: [{
+                                id: <int>,
+                                name: <string>,
+                                country_id: <int>
+                            }],
                             release_date: <string> (format: yyyy/mm/dd),
-                            genre_id: <int>,
-                            subcategory_id: <int>,
-                            language_id: <int>,
-                            colored: boolean
+                            genre: {
+                                id: <int>,
+                                genre: <string>,
+                                age_rating: <string>
+                            },
+                            language: {
+                                id: <int>,
+                                language: <string>
+                            },
+                            colored: <boolean>
                         }
-                        (category_id = clothes) ?: {
-                            subcategory_id: <int>,
-                            size_id: <int>,
-                            color_id <int>,
-                            material_id <int>
+                        (category = clothes) ?: {
+                            subcategory: {
+                                id: <int>,
+                                category_id: <int>,
+                                name: <string>
+                            },
+                            size: {
+                                id: <int>,
+                                subcategory_id: <int>,
+                                size: <string>
+                            },
+                            colors: [{
+                                id: <int>,
+                                color: <string>
+                            }],
+                            material: {
+                                id: <int>,
+                                subcategory_id: <int>,
+                                material: <string>
+                            }
                         }
-                    age_rating_id: <int>,
-                    country_id: <int>,
+                    age_rating: {
+                        id: <int>,
+                        age_rating: <string>
+                    },
+                    series: [{
+                        id: <int>,
+                        name: <string>
+                    }],
+                    country: {
+                        id: <int>,
+                        name: <string>
+                    },
                     rating: <int>,
                     quantity: <int>,
                     price: <double>,
@@ -494,7 +545,7 @@ This is the API Reference, which aims to explain with as much detail as possible
             ]
         }
 
-        <!-- You can get all products or get them by specific properties, according to the product category's ID, the server will obtain the related item and specific category details, such as material, color, size, author or language. These category details will be accessible from the same product object, which makes fetching and further interactions which the products much more convenient and easy. -->
+        <!-- You can get all products or a single one, according to the product category, the server will obtain the related item and specific category details, such as material, color, size, author or language. These category details will be accessible from the same product object, which makes fetching and further interactions which the products much more convenient and easy. -->
 
         ****************************************************************************
         
@@ -504,78 +555,57 @@ This is the API Reference, which aims to explain with as much detail as possible
             description: <string> **,
             category_id: <int> **,
             category_details:
-                (category_id = collectibles) ?: {
-                            subcategory_id: <int>,
-                            company_id: <int>
+                (category = collectibles) ?: {
+                            subcategory_id: <int> **,
+                            company_id: <int> **
                         }
-                        (category_id = comics) ?: {
-                            company_id: <int>,
-                            author_id: <int>,
-                            release_date: <string> (format: yyyy/mm/dd),
-                            genre_id: <int>,
-                            subcategory_id: <int>,
-                            language_id: <int>,
-                            colored: boolean
+                        (category = comics) ?: {
+                            subcategory_id: <int> **,
+                            company_id: <int> **,
+                            authors_id: [<int>] **,
+                            release_date: <string> (format: yyyy/mm/dd) **,
+                            genre_id: <int> **,
+                            language_id: <int> **,
+                            colored: <boolean> **
                         }
-                        (category_id = clothes) ?: {
-                            subcategory_id: <int>,
-                            size_id: <int>,
-                            color_id <int>,
-                            material_id <int>
+                        (category = clothes) ?: {
+                            subcategory_id: <int> **,
+                            size_id: <int> **,
+                            colors_id: [<int>] **,
+                            material_id: <int> **
                         }
             age_rating_id: <int> **,
-            country_id: <int> **,
-            rating: <int> **,
+            series_id: [<int>] **,
+            country_id: <string> **,
             quantity: <int> **,
             price: <double> **,
-            images: [<string>] **
         }
         <--- {
             status: 201,
-            message: "Product saved successfully"
+            message: "Product Uploading Step 1: successful"
         }
 
-         <!-- To add a new product, you have to fill in the generic data, and based on the specified category, category details matching said category must be provided. In this case, the subcategory will be used to match specific values that correspond exclusively to each subcategory, e.g: a ring's size is measured differently than clothing's size and their possible materials may be different as well. For this reason, having selected a subcategory, it's required to also provide values that are legal within that subcategory. -->
+         <!-- To add a new product, you have to fill in the generic data, and based on the specified category, category details matching said category must be provided. In this case, the subcategory will be used to match specific values that correspond exclusively to each subcategory, e.g: a ring's size is measured differently than clothing's size and their possible materials may be different as well. For this reason, having selected a subcategory, it's required to also provide values that are legal within that subcategory. It's encouraged to fetch the options and select from them instead of handwriting the values which would eventually lead to data inconsistencies in the system, which in turn would enourmously & negatively affect user experience because things like searching & filtering would start failing. This endpoint is for creating a product and specifying its data, but it should always be followed by the /images/products endpoint's POST method, in order to provide images for the product, by using multipart form data instead of JSON like in this method. -->
 
         ****************************************************************************
 
         PUT PARAMS: id
-        ---> {
-            description: <string>,
-            category_id: <int>,
-            category_details:
-                (category_id = collectibles) ?: {
-                            subcategory_id: <int>,
-                            company_id: <int>
-                        }
-                        (category_id = comics) ?: {
-                            company_id: <int>,
-                            author_id: <int>,
-                            release_date: <string> (format: yyyy/mm/dd),
-                            genre_id: <int>,
-                            subcategory_id: <int>,
-                            language_id: <int>,
-                            colored: boolean
-                        }
-                        (category_id = clothes) ?: {
-                            subcategory_id: <int>,
-                            size_id: <int>,
-                            color_id <int>,
-                            material_id <int>
-                        }
-            age_rating_id: <int>,
-            country_id: <int>,
-            rating: <int>,
-            quantity: <int>,
-            price: <double>,
-            images: [<string>]
+        ---> [Content-Type: multipart/form-data] {
+            name: <string> **,
+            description: <string> **,
+            age_rating_id: <int> **,
+            series_id: [<int>] **,
+            country_id: <int> **,
+            rating: <int> **,
+            quantity: <int> **,
+            price: <double> **,
         }
         <--- {
             status: 204,
             message: "Changes saved successfully"
         }
 
-        <!-- Product updates allow administrators to modify the **values** of the product's properties, which means changing subcategories or categories is not possible, you have to provide the data you wish to change. -->
+        <!-- This allows for updating generic product data, categories cannot be changed, and category details must be changed using the category endpoints (/clothes, /collectibles & /comics). -->
 
         ****************************************************************************
 
@@ -667,11 +697,9 @@ This is the API Reference, which aims to explain with as much detail as possible
         <--- {
             status: 201,
             message: "User created successfully",
-            accessToken: <string>,
-            role_id: <int>
         }
 
-        <!-- This is the same as the users' POST method, with the slight difference that in this case, users will not be able to specify their roles and will be assigned "customer" by default by the server. After submiting the data, a user will be created and the authorization information will be returned to have access to the other endpoints and can be used to authorize users within the client application as well. -->
+        <!-- This is the same as the users' POST method, with the slight difference that in this case, users will not be able to specify their roles and will be assigned "customer" by default by the server. After submiting the data, a user will be created. -->
 
     ****************************************************************************
     ****************************************************************************
@@ -727,7 +755,7 @@ This is the API Reference, which aims to explain with as much detail as possible
 
     /orders
 
-        GET ?> PARAMS: id || user_id &|| order_date
+        GET ?> PARAMS: user_id &|| id
         <--- {
             status: 200,
             orders: [
@@ -737,19 +765,96 @@ This is the API Reference, which aims to explain with as much detail as possible
                     delivery_date: <string> (format:  YYYY-MM-DD HH:MI:SS),
                     total_price: <float>,
                     user_id: <int>,
-                    products: [{
-                        id: <int>,
-                        name: <string>,
-                        description: <string>,
-                        category_id: <int>,
-                        age_rating_id: <int>,
-                        country_id: <int>,
-                        rating: <int>,
-                        quantity: <int>,
-                        price: <double>,
-                        images: [<string>]
-                    }]
-                }
+                    products: [
+                        {
+                            id: <int>,
+                            name: <string>,
+                            description: <string>,
+                            category: {
+                                id: <int>,
+                                name: <string>
+                            },
+                            category_details:
+                                (category = collectibles) ?: {
+                                    subcategory: {
+                                        id: <int>,
+                                        category_id: <int>,
+                                        name: <string>
+                                    },
+                                    company: {
+                                        id: <int>,
+                                        name: <string>,
+                                        country_id: <int>
+                                    }
+                                }
+                                (category = comics) ?: {
+                                    subcategory: {
+                                        id: <int>,
+                                        category_id: <int>,
+                                        name: <string>
+                                    },
+                                    company: {
+                                        id: <int>,
+                                        name: <string>,
+                                        country_id: <int>
+                                    },
+                                    authors: [{
+                                        id: <int>,
+                                        name: <string>,
+                                        country_id: <int>
+                                    }],
+                                    release_date: <string> (format: yyyy/mm/dd),
+                                    genre: {
+                                        id: <int>,
+                                        genre: <string>,
+                                        age_rating: <string>
+                                    },
+                                    language: {
+                                        id: <int>,
+                                        language: <string>
+                                    },
+                                    colored: <boolean>
+                                }
+                                (category = clothes) ?: {
+                                    subcategory: {
+                                        id: <int>,
+                                        category_id: <int>,
+                                        name: <string>
+                                    },
+                                    size: {
+                                        id: <int>,
+                                        subcategory_id: <int>,
+                                        size: <string>
+                                    },
+                                    colors: [{
+                                        id: <int>,
+                                        color: <string>
+                                    }],
+                                    material: {
+                                        id: <int>,
+                                        subcategory_id: <int>,
+                                        material: <string>
+                                    }
+                                }
+                            age_rating: {
+                                id: <int>,
+                                age_rating: <string>
+                            },
+                            series: [{
+                                id: <int>,
+                                name: <string>
+                            }],
+                            country: {
+                                id: <int>,
+                                name: <string>
+                            },
+                            rating: <int>,
+                            quantity: <int>,
+                            price: <double>,
+                            images: [<string>]
+                        }
+                    ]
+                }   
             ]
         }
 
@@ -760,7 +865,8 @@ This is the API Reference, which aims to explain with as much detail as possible
         POST
         ---> {
             total_price **,
-            product_id_list: [<int>] **
+            products_id: [<int>] **,
+            shipping_address: <string> (format: country-state/province-city-address-floor)
         }
 
         <!-- To add a new order, an array of product id's must be sent along a total price, from that, the server will build the order by using the provided product list's data as well as automatically generating other information. -->
@@ -773,3 +879,183 @@ This is the API Reference, which aims to explain with as much detail as possible
         }
 
         <!-- This method will only be used to add a delivery date to an order, which signifies it's been successfully delivered to the customer. This can be used to track an order's state, if empty, it's pending, if present, it's delivered. -->
+
+    ****************************************************************************
+    ****************************************************************************
+    ****************************************************************************
+
+    /anouncements
+        
+        GET ?> PARAMS id
+        <--- {
+            status: 200,
+            anouncements: [
+                {
+                    id: <int>,
+                    title: <string>,
+                    content: <string>,
+                    pub_date: <string> (format:  YYYY-MM-DD HH:MI:SS),
+                    images: [<string>]
+                }
+            ]
+        }
+
+        ****************************************************************************
+
+        POST
+        ---> {
+            title: <string> **,
+            content: <string> **
+        }
+
+        ****************************************************************************
+
+        PUT ?> PARAMS: id
+        ---> {
+            title: <string> **,
+            content: <string> **
+        }
+
+        ****************************************************************************
+
+        DELETE ?> PARAMS: id
+        <--- {
+            status: 204,
+            message: "Anouncement deleted successfully"
+        }
+
+        <!-- When deleting an anouncement, all images are deleted first to prevent relational database constraints from blocking the delete operation, and then the anouncement is eliminated from the database. -->
+
+    ****************************************************************************
+    ****************************************************************************
+    ****************************************************************************
+
+    /comments
+        
+        GET ?> PARAMS id
+        <--- {
+            status: 200,
+            comments: [
+                {
+                    id: <int>,
+                    user_id: <int>,
+                    product_id: <int>,
+                    content: <string>,
+                    pub_date: <string> (format:  YYYY-MM-DD HH:MI:SS),
+                    votes: <int>
+                }
+            ]
+        }
+
+        ****************************************************************************
+
+        POST
+        ---> {
+            user_id: <int>,
+            product_id: <int>,
+            content: <string>,
+        }
+
+        ****************************************************************************
+
+        PUT ?> PARAMS: id
+        ---> {
+            content: <string> **,
+            votes: <int> **
+        }
+
+        <!-- A comment's content can be updated by the user who posted it, and the votes are increased or decreased by any users. -->
+
+        ****************************************************************************
+
+        DELETE ?> PARAMS: id
+        <--- {
+            status: 204,
+            message: "Comment deleted successfully"
+        }
+
+        <!-- Comments can always be deleted without any restriction from the database either by the user who posted it or by administrators who may consider the comment as violating some sort of use policy. -->
+
+    ****************************************************************************
+    ****************************************************************************
+    ****************************************************************************
+
+    /images
+
+        /products
+            
+            POST 
+            ---> [Content-Type: multipart/form-data] {
+                product_id: <int> **,
+                images: [<file>] **
+            }
+            <--- {
+                status: 201,
+                message: "Image successfully added"
+            }
+        
+            <!-- Images will be received and stored in the corresponding folder in the server's file system, as well as stored in the database along with the corresponding product_id, in order to later return them inside the product. (this implementation was chosen since this project does not require to store a high amount of images). -->
+            
+            ****************************************************************************
+
+            DELETE PARAMS: product_id & id
+            <--- {
+                status: 204,
+                message: "Image successfully deleted"
+            }
+
+            <!-- The image will be deleted from the file system and the database.  -->
+        
+        ****************************************************************************
+        ****************************************************************************
+        
+        /anouncements
+            
+            POST 
+            ---> [Content-Type: multipart/form-data] {
+                anouncement_id: <int> **,
+                images: [<file>] **
+            }
+            <--- {
+                status: 201,
+                message: "Image successfully added"
+            }
+        
+            <!-- Images will be received and stored in the corresponding folder in the server's file system, as well as stored in the database along with the corresponding anouncement_id, in order to later return them inside the anouncement. -->
+            
+            ****************************************************************************
+
+            DELETE PARAMS: anouncement_id & id
+            <--- {
+                status: 204,
+                message: "Image successfully deleted"
+            }
+
+            <!-- The image will be deleted from the file system and the database.  -->
+        
+        ****************************************************************************
+        ****************************************************************************
+        
+        /users
+            
+            POST 
+            ---> [Content-Type: multipart/form-data] {
+                user_id: <int> **,
+                image: <file> **
+            }
+            <--- {
+                status: 201,
+                message: "Image updated successfully"
+            }
+        
+            <!-- Images will be received and stored in the corresponding folder in the server's file system, as well as stored in the database along with the corresponding user_id, in order to later return them inside the user. -->
+            
+            ****************************************************************************
+
+            DELETE PARAMS: user_id & id
+            <--- {
+                status: 204,
+                message: "Image successfully deleted"
+            }
+
+            <!-- All users can delete their profile pictures anytime (unless they are using the default icecream cat profile picture). -->
