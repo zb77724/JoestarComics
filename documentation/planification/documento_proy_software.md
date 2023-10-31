@@ -17,13 +17,13 @@ El proyecto se encuentra en una etapa en la que la documentación llevada hasta 
 
 ## Actividades que realiza el usuario
 
-Entre las actividades que realizará el usuario se encuentran: b
+Entre las actividades que realizará el usuario se encuentran:
 
 ### Usuario (Cliente)
 
 - Busqueda de productos atraves del nombre (por la barra de busqueda) o realizar busquedas con mas precision por medio de otros datos como lo serian el autor, la franquicia, la serie, etc (filtro).
 
-- Compra de productos, el usuario al encontrar un articulo de su interes tendra la oportunidad de agregarlo al carrito (desde la lista de productos o desde los detalles del producto) en el cual se visualizara el precio total del o los productos, para afectuar la compra se deberan poner sus datos bancarios y listo, aclarando, otra vez el usuario no tendra permitida esta accion si no posee una cuenta.
+- Compra de productos, el usuario al encontrar un articulo de su interes tendra la oportunidad de agregarlo al carrito (desde la lista de productos o desde los detalles del producto) en el cual se visualizara el precio total del, o los productos, para afectuar la compra se deberan poner sus datos bancarios y listo, aclarando, otra vez el usuario no tendra permitida esta accion si no posee una cuenta.
 
 - Revision de historial, se podra verificar mas información de las compras realizadas, el estado, precio, fecha de encargo, si se quiere ser mas especifico el historial contara con un filtro adaptado al historial.
 
@@ -57,7 +57,7 @@ Algunas de las dificultades que podriamos enfrentar en este proyecto pueden ser:
 
 ### Tecnologias dispoibles
 
-El desarrollo va a ser llevado a cabo principalmente por dos tecnologias esenciales, una encargada de frontend y la otra del backend, en el proyecto se va a hacer uso de la libreria React js para el frontend y para el backend se va a hacer uso de node js y express js.
+El desarrollo va a ser llevado a cabo principalmente por dos tecnologias esenciales, una encargada de frontend y la otra del backend, en el proyecto se va a hacer uso de la libreria React js para el frontend y para el backend se va a hacer uso de Node js y Express js.
 
 ### Ventajas 
 
@@ -73,11 +73,8 @@ Las ventajas seran dividias entre las del frontend y el backend.
  
 #### Backend
 
-- 
-
--
-
--
+c: El apartado de las ventajas del uso de tecnologias para el backend te tocaria a vos ya que aun no poseo tanta experiencia como
+para decir algo
 
 ## Propuesta
 
