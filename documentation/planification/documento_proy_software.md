@@ -17,27 +17,27 @@ El proyecto se encuentra en una etapa en la que la documentación llevada hasta 
 
 ## Actividades que realiza el usuario
 
-Entre las actividades que realizará el usuario
+Entre las actividades que realizará el usuario se encuentran: b
 
 ### Usuario (Cliente)
 
 - Busqueda de productos atraves del nombre (por la barra de busqueda) o realizar busquedas con mas precision por medio de otros datos como lo serian el autor, la franquicia, la serie, etc (filtro).
 
-- Compra de productos, el usuario al encontrar un articulo de su interes tendra la oportunidad de agregarlo al carrito (desde la lista de productos o desde los detalles del producto) en se visualizara el precio total del o los productos, para afectuar la compra se deberan poner sus datos bancarios y listo, aclarando, otra ve el usuario no tendra permitida esta accion si no posee una cuenta.
+- Compra de productos, el usuario al encontrar un articulo de su interes tendra la oportunidad de agregarlo al carrito (desde la lista de productos o desde los detalles del producto) en el cual se visualizara el precio total del o los productos, para afectuar la compra se deberan poner sus datos bancarios y listo, aclarando, otra vez el usuario no tendra permitida esta accion si no posee una cuenta.
 
-- Revision de historial, se podra verificar mas informacion de las compras realizadas, el estado, precio, fecha de encargo, si se quiere ser mas especifico el historial contara con un filtro adaptado al historial.
+- Revision de historial, se podra verificar mas información de las compras realizadas, el estado, precio, fecha de encargo, si se quiere ser mas especifico el historial contara con un filtro adaptado al historial.
 
 ### Usuario (Administrador)
 
-- Creacion, aumento, modificacion y "eliminacion", el adminitrador cuenta con la capacidad de alterar todo lo relacionado a los productos, altgunas tales como el apartdo para creacion de productos, opciones adicionales en la lista de producos de la pagina principal y la adicion de mas unidades de un producto que se haya acabado.
+- Creación, aumento, modificación y "eliminación", el adminitrador cuenta con la capacidad de alterar todo lo relacionado a los productos, algunas tales como el apartdo para creacion de productos, opciones adicionales en la lista de producos de la pagina principal y la adición de mas unidades de un producto que se haya acabado.
 
-- Creaccion de noticia relacionadas a la comunidad del proyecto, el administrador al igual que conn los productos sera capaz de subir noticias (descuentos, proximos productos o lanzamientos relacionados a la pagina o al mundo Geek en general, etc).
+- Creación de noticias relacionadas a la comunidad del proyecto, el administrador al igual que conn los productos sera capaz de subir noticias (descuentos, proximos productos o lanzamientos relacionados a la pagina o al mundo Geek en general, etc).
 
 - Revision de estadisticas, el administrador podra tener constacia de el progreso que la pagina esta teniendo financieramente, ya sean las categorias en general o las subcategorias o incluso el rendiiento de la pagina en general.
 
 ## Software y/o metodos manuales existentes
 
-Hasta el momento el proyecto cuenta unicamente con una minuciosa documentacion en la cual se especifican el diseño, el comportamiento de la api, de que forma se va a componer la base de datos, etc.
+Hasta el momento el proyecto cuenta unicamente con una minuciosa documentacion en la cual se especifican el diseño, el comportamiento de la Api, de que forma se va a componer la base de datos, etc.
 
 ## Dificultades
 
@@ -45,13 +45,13 @@ Algunas de las dificultades que podriamos enfrentar en este proyecto pueden ser:
 
 - Desacuerdos relacionados a las partes ya establecidas en el proyecto.
 
-- Aumento de la complejidad del proyecto haciendo que se tenga que repetir la fase en la que se encuentre  para que se acople de la mejor manera a los cambios.
+- Aumento de la complejidad del proyecto haciendo que se tenga que repetir la fase en la que se encuentre para que se acople de la mejor manera a los cambios.
 
-- Poca documentacion sobre alguna implementacion en particular, dejadndo ese apartadoa la imaginacion y muy poco detallado.
+- Poca documentación sobre alguna implementación en particular, deja do ese apartado a la imaginación y muy poco detallado.
 
-- Empezar la fase de desarrollo en un timmpo tardio por extenderse con la fase de requerimientos o dseño.
+- Empezar la fase de desarrollo en un tiempo tardío por extenderse con la fase de requerimientos o diseño.
 
-- Implementar una idea mejor en la fase de desarrollo pero que no haya sido documentada en la documentacion previa, no seria problema con cambios menores pero si con cambios de gran magnitud.
+- Implementar una idea mejor en la fase de desarrollo pero que no haya sido documentada en la documentación previa, no seria problema con cambios menores pero si con cambios de gran magnitud.
 
 ## Oportunidades de desarollo de Software
 
