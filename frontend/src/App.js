@@ -25,8 +25,9 @@ const App = () => {
 
         {/* Routes which are only accessible by customers */}
         <Route element={ <RequireAuthorization role="customer" /> }>
-          <Route path="history:user_id" element={ <History />} />
-          <Route path="profile:user_id" element={ <Profile />} />
+          <Route path="history" element={ <History />} />
+          <Route path="profile" element={ <Profile />} />
+          <Route path="shippingForm" element={ <ShippingForm />} />
         </Route>
 
         {/* Routes which are only accessible by administrators */}
