@@ -27,6 +27,7 @@ CREATE TABLE `anouncements` (
   `id` int NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
+  `type` text NOT NULL,
   `pub_date` timestamp NOT NULL,
   PRIMARY KEY (`id`)
 );
