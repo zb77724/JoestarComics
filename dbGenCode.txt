@@ -1,0 +1,270 @@
+CREATE DATABASE joestar_comics;
+USE joestar_comics;
+
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `pfp_path` varchar(255) NOT NULL default "./assets/images/users/the_icecream_cat.jpeg",
+  `role` varchar(255) NOT NULL default "customer",
+  `deleted` boolean NOT NULL default FALSE,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `orders` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `order_date` timestamp NOT NULL,
+  `delivery_date` datetime,
+  `total_price` double NOT NULL,
+  `user_id` int NOT NULL,
+  `shipping_address` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)
+);
+
+CREATE TABLE `anouncements` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `pub_date` timestamp NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `anouncement_images` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `path` varchar(255) NOT NULL,
+  `anouncement_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`anouncement_id`) REFERENCES `anouncements`(`id`)
+);
+
+CREATE TABLE `covers` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cover` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `series` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `languages` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `language` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `colors` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `categories` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `subcategories` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `category_id` int NOT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`category_id`) REFERENCES `categories`(`id`)
+);
+
+CREATE TABLE `materials` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `subcategory_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories`(`id`)
+);
+
+CREATE TABLE `sizes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `size` varchar(255) NOT NULL,
+  `subcategory_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories`(`id`)
+);
+
+CREATE TABLE `countries` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `companies` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `country_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`country_id`) REFERENCES `countries`(`id`)
+);
+
+CREATE TABLE `authors` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `country_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`country_id`) REFERENCES `countries`(`id`)
+);
+
+CREATE TABLE `age_ratings` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `age_rating` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `genres` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `genre` varchar(255) NOT NULL,
+  `age_rating_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`age_rating_id`) REFERENCES `age_ratings`(`id`)
+);
+
+CREATE TABLE `products` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `rating` int NOT NULL,
+  `price` double NOT NULL,
+  `quantity` int NOT NULL,
+  `category_id` int NOT NULL,
+  `country_id` int NOT NULL,
+  `age_rating_id` int NOT NULL,
+  `deleted` boolean NOT NULL DEFAULT FALSE,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`category_id`) REFERENCES `categories`(`id`),
+  FOREIGN KEY (`country_id`) REFERENCES `countries`(`id`),
+  FOREIGN KEY (`age_rating_id`) REFERENCES `age_ratings`(`id`)
+);
+
+CREATE TABLE `comments` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `product_id` int NOT NULL,
+  `content` text NOT NULL,
+  `pub_date` timestamp NOT NULL,
+  `mod_date` datetime,
+  `votes` int NOT NULL default 0,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`),
+  FOREIGN KEY (`product_id`) REFERENCES `products`(`id`)
+);
+
+CREATE TABLE `collaborations` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `product_id` int NOT NULL,
+  `series_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`product_id`) REFERENCES `products`(`id`),
+  FOREIGN KEY (`series_id`) REFERENCES `series`(`id`)
+);
+
+CREATE TABLE `comics` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `product_id` int NOT NULL,
+  `subcategory_id` int NOT NULL,
+  `company_id` int NOT NULL,
+  `language_id` int NOT NULL,
+  `cover_id` int NOT NULL,
+  `colored` boolean NOT NULL,
+  `release_date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`product_id`) REFERENCES `products`(`id`),
+  FOREIGN KEY (`company_id`) REFERENCES `companies`(`id`),
+  FOREIGN KEY (`cover_id`) REFERENCES `covers`(`id`),
+  FOREIGN KEY (`language_id`) REFERENCES `languages`(`id`),
+  FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories`(`id`)
+);
+
+CREATE TABLE ` comic_authors` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `comic_id` int,
+  `author_id` int,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`comic_id`) REFERENCES `comics`(`id`),
+  FOREIGN KEY (`author_id`) REFERENCES `authors`(`id`)
+);
+
+CREATE TABLE `comic_genres` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `comic_id` int,
+  `genre_id` int,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`comic_id`) REFERENCES `comics`(`id`),
+  FOREIGN KEY (`genre_id`) REFERENCES `genres`(`id`)
+);
+
+CREATE TABLE `collectibles` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `product_id` int NOT NULL,
+  `subcategory_id` int NOT NULL,
+  `company_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories`(`id`),
+  FOREIGN KEY (`company_id`) REFERENCES `companies`(`id`),
+  FOREIGN KEY (`product_id`) REFERENCES `products`(`id`)
+);
+
+CREATE TABLE `clothes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `product_id` int,
+  `subcategory_id` int,
+  `size_id` int,
+  `color_id` int,
+  `material_id` int,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`product_id`) REFERENCES `products`(`id`),
+  FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories`(`id`),
+  FOREIGN KEY (`material_id`) REFERENCES `materials`(`id`),
+  FOREIGN KEY (`size_id`) REFERENCES `sizes`(`id`),
+  FOREIGN KEY (`color_id`) REFERENCES `colors`(`id`)
+);
+
+CREATE TABLE `clothing_colors` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `item_id` int NOT NULL,
+  `color_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`item_id`) REFERENCES `clothes`(`id`),
+  FOREIGN KEY (`color_id`) REFERENCES `colors`(`id`)
+);
+
+CREATE TABLE `order_products` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `order_id` int NOT NULL,
+  `product_id` int NOT NULL,
+  `price_instance` double NOT NULL,
+  `quantity` int NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`order_id`) REFERENCES `orders`(`id`),
+  FOREIGN KEY (`product_id`) REFERENCES `products`(`id`)
+);
+
+CREATE TABLE `product_images` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `product_id` int NOT NULL,
+  `path` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`product_id`) REFERENCES `products`(`id`)
+);
+
+CREATE TABLE `ratings` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `product_id` int NOT NULL,
+  `5_stars` int NOT NULL default 0,
+  `4_stars` int NOT NULL default 0,
+  `3_stars` int NOT NULL default 0,
+  `2_stars` int NOT NULL default 0,
+  `1_star` int NOT NULL default 0,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`product_id`) REFERENCES `products`(`id`)
+);
