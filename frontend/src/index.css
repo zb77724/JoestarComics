@@ -1,0 +1,279 @@
+/* ********************** FONT IMPORTS ************************ */
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400;6..12,600;6..12,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;600;700&display=swap');
+
+/* ********************** GLOBAL STYLES *********************** */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* *********************** VARIABLES ************************** */
+
+:root {
+
+    /* light theme color palette */
+    /* --main-color: #fafafa;
+    --secondary-color: #DDD;
+    --content-color: #222;
+    --hot-color: #9227E5;
+    --distinctive-color: #CA80FA;
+    --distinctive-text: #777;
+    --highlight-color: #8f2759; */
+
+    /* dark theme color palette */
+    --main-color: #111;
+    --secondary-color: #222;
+    --content-color: #FAFAFA;
+    --hot-color: #A32BFF;
+    --distinctive-color: #CA80FA;
+    --distinctive-text: #AAA;
+    --highlight-color: #FF449E;
+
+    /* typography */
+    --fxl-size: 2rem; /* extra large font size */
+    --fl-size: 1.5rem; /* large font size */
+    --fml-size: 1.125rem; /* large font size */
+    --fm-size: 1rem; /* regular font size */
+    --fs-size: .5rem; /* small font size */
+    --fxl-weight: "bold";
+    --fl-weight: "bold";
+    --fml-weight: "semibold";
+    --fm-weight: "medium";
+    --fs-weight: "light";
+    --h-family: 'Josefin Sans', 'Poppins', Sans-Serif;
+    --c-family: 'Quicksand', 'Outfit', 'Nunito Sans', 'Sans-Serif';
+    
+    /* paddings, gaps & borders */
+    --rad: 10px;
+    --b-padding: 1em;
+    --e-padding: .5em;
+    --b-gap: 2em;
+    --e-gap: .25em;
+}
+
+/* ********************** TYPOGRAPHY ************************ */
+
+.h-1 {
+    font-family: var(--h-family);
+    font-size: var(--fxl-size);
+    font-weight: var(--fxl-weight);
+    color: var(--content-color);
+}
+
+.h-2 {
+    font-family: var(--h-family);
+    font-size: var(--fl-size);
+    font-weight: var(--fl-weight);
+    color: var(--content-color);
+}
+
+.h-3 {
+    font-family: var(--h-family);
+    font-size: var(--fml-size);
+    font-weight: var(--fml-weight);
+    color: var(--content-color);
+    margin-bottom: var(--e-gap);
+}
+
+.hs {
+    color: var(--hot-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cs {
+    font-family: var(--c-family);
+    font-size: var(--fm-size);
+    font-weight: var(--fml-weight);
+    color: var(--hot-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.active,
+.cs:hover {
+    color: var(--highlight-color);
+}
+
+.c-1 {
+    font-family: var(--c-family);
+    font-size: var(--fm-size);
+    font-weight: var(--fm-weight);
+    color: var(--content-color);
+}
+
+.c-2 {
+    font-family: var(--c-family);
+    font-size: var(--fs-size);
+    font-weight: var(--fs-weight);
+    color: var(--content-color);
+}
+
+.c-wrapper {
+    width: max-content;
+    height: max-content;
+}
+
+/* ************************ Layout ************************** */
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: var(--b-gap);
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header {
+    background: var(--main-color);
+}
+
+.menu {
+    background: var(--secondary-color);
+}
+
+.window {
+    padding: var(--b-padding);
+}
+
+/* ************************ Elements ************************** */
+
+.input {
+    padding: var(--e-padding);
+    background: #FFF;
+    border-radius: var(--rad);
+}
+
+.input:focus {
+    outline: 2px solid var(--hot-color);
+}
+
+.btn {
+    padding: var(--e-padding);
+    background: var(--hot-color);
+    border-radius: var(--rad);
+}
+
+.btn:active {
+    background: var(--highlight-color);
+    transition: all 200ms;
+}
+
+.option {
+    padding: var(--e-padding);
+    background: #FFF;
+}
+
+/* ************************ Responsive Layout ************************** */
+
+/* Extra Small Layout */
+@media screen and (min-width: 100px) {
+
+    /* Serves to directionally align flex elements */
+    /* A grid that adapts to screen size and changes to flex for small screens */
+    .b-wrapper,
+    .gtf {
+        width: max-content;
+        height: max-content;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        row-gap: var(--b-gap);
+    }
+
+    /* row to column - container level & element level  */
+    .rtc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        row-gap: var(--e-gap);
+    }
+
+    .rtc-s {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        row-gap: var(--e-gap);
+    }
+}
+
+/* Medium Screen Layout */
+@media screen and (min-width: 400px) {
+
+    /* Aligns the elements in a grid fashion */
+    .gtf {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: var(--b-gap);
+    }
+
+    /* Serves to directionally align flex elements */
+    .b-wrapper {
+        height: max-content;
+        width: max-content;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        column-gap: var(--b-gap);
+    }
+
+    /* row to column - container level */
+    .rtc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        row-gap: var(--e-gap);
+    }
+
+    /* row to column - element level */
+    .rtc-s {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: var(--b-gap);
+    }
+}
+
+/* Wide Screen Layout */
+@media screen and (min-width: 600px) {
+
+    /* Aligns the elements in a grid fashion */
+    .gtf {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
+
+    /* row to column - container level & element level */
+    .rtc,
+    .rtc-s {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: var(--b-gap);
+    }
+}

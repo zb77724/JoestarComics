@@ -3,10 +3,13 @@ import Header from "./Header";
 
 // toDo: Provide context with user data and pass it down to the header so it shows the adequate options.
 const Layout = () => {
-    <>
-        <Header />
-        <Outlet /> 
-    </>
+
+    return (
+        <>
+            <Header />
+            <Outlet />
+        </>
+    );
 }
 
 export default Layout;
