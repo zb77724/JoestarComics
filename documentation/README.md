@@ -1,7 +1,20 @@
 # JoestarComics
 
-## Detalles
+## Description
 
-Descripción del proyecto: Se trata de un sitio destinado a la venta de cómics y productos relacionados, provee una interfaz intuitiva y directo al grano y permite el análisis de la información y administración del sistema.
+Joestar comics is an e-commerce website that offers a limitless variety of products related to comics, anime & other related subjects. It offers a visually appealing, intuitive & easy-to-use interface with a wide range of functionalities that make user experience as comfortable and satisfactory as possible.
 
-Equipo: Badawi, Zackery A. y Maita, Mauro L.
+## Details
+
+### Tecnologies
+
+This project was developed with the following languages, frameworks & libraries:
+
+- React
+- Axios
+- Node & Express
+- MySQL
+
+### Development
+
+- Developed by: Zackery A. Badawi

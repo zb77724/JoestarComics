@@ -1,9 +1,38 @@
 # Informe de Desarollo de Proyecto de Software
 
+## Índice
+
+* [Objetivo] (#objetivo)
+* [Fundamentación] (#fundamentacion)
+    * [Descripción de la situación actual] (#descripción-de-la-situación-actual)
+* [Actividades que realiza el usuario] (#actividades-que-realiza-el-usuario)
+    * [Cliente] (#cliente)
+    * [Administrador] (#administrador)
+* [Software y/o métodos manuales existentes] (#software-y/o-métodos-manuales-existentes)
+    * [Backend] (#backend)
+    * [Frontend] (#frontend)
+* [Documentación] (#documentación)
+    * [Descripción] (#descripción)
+    * [Dificultades] (#dificultades)
+* [Oportunidades de desarrollo de software] (#oportunidades-de-desarrollo-de-software)
+    * [Tecnologías disponibles] (#tecnologías-disponibles)
+* [Propuesta] (#propuesta)
+    * [Alternativas] (#alternativas)
+    * [Criterios de selección] (#criterios-de-selección)
+* [Descripción] (#descripción)
+    * [Diseño general] (#diseño-general)
+    * [Diseño de estructura de datos] (#diseño-de-estructura-de-datos)
+    * [Diseño de interfaces] (#diseño-de-interfaces)
+* [Planificación] (#planificación)
+    * [Gestión de riesgos] (#gestión de riesgos)
+    * [División de tareas] (#división de tareas)
+    * [Dificultades] (#dificultades)
+* [Desarrollo] (#desarrollo)
+    * [Ejemplo de código (Backend)] (#desarrollo)
+
 ## Objetivo 
 
-El objetivo que se tiene en mente en cuanto al proyecto es desarrollar una aplicación web relacionada al mundo Geek en la cual se va 
-a presentar un amplio stock de productos (comics, figuras, ropa, etc) con sus datos organizados y especificados 
+El objetivo que se tiene en mente en cuanto al proyecto es desarrollar una aplicación web relacionada al mundo Geek en la cual se va a presentar un amplio stock de productos (comics, figuras, ropa, etc) con sus datos organizados y especificados 
 eficientemente para la realización de búsquedas mas precisas y evitar la confusión con otros articulos que comparten las
 mismas caracterísiticas. Los usuarios corrientes deberán ser capaces de realizar búsquedas y compras mientras que los 
 usuarios con rol mas elevado (administradores) deben ser capaces de realizar pulicaciones tanto de productos como de 
@@ -15,66 +44,69 @@ noticias, así como también visualizar estadísticas de ventas de categorías, 
 
 El proyecto se encuentra en una etapa en la que la documentación llevada hasta ahora puede sufrir ligeras modificaciones, luego de haber pasado por los cambios más grandes, como por ejemplo, la primera versión de la base de datos, la cual por una evaluación previa se tuvo que modificar para que el sistema sea más eficiente y mejor especificado.
 
+El desarrollo avanza sin inconvenientes, el Backend está casi completamente desarrollado, en etapa de pruebas, y con posibles arreglos y añadidos finales, mientras que el frontend cuenta, por el momento, únicamente con un menú de navegación y rutas definidas.
+
 ## Actividades que realiza el usuario
 
 Entre las actividades que realizará el usuario se encuentran:
 
-### Usuario (Cliente)
+### Cliente
 
-- Busqueda de productos atraves del nombre (por la barra de busqueda) o realizar busquedas con mas precision por medio de otros datos como lo serian el autor, la franquicia, la serie, etc (filtro).
+- Filtrado de productos a través del nombre (por la barra de busqueda) o por medio de otros datos como autor, series, etc.
 
-- Compra de productos, el usuario al encontrar un articulo de su interes tendra la oportunidad de agregarlo al carrito (desde la lista de productos o desde los detalles del producto) en el cual se visualizara el precio total del, o los productos, para afectuar la compra se deberan poner sus datos bancarios y listo, aclarando, otra vez el usuario no tendra permitida esta accion si no posee una cuenta.
+- Compra de productos, el usuario al encontrar un articulo de su interes podrá agregarlo al carrito (desde la lista de productos o desde los detalles del producto) en el cual se visualizará el precio total del, o los productos, para efectuar la compra se deberán poner sus datos bancarios y listo, aclarando otra vez, el usuario no tendra permitida esta acción si no posee una cuenta.
 
-- Revision de historial, se podra verificar mas información de las compras realizadas, el estado, precio, fecha de encargo, si se quiere ser mas especifico el historial contara con un filtro adaptado al historial.
+- Revisión de historial, se podrá verificar más información de las compras realizadas, el estado, precio y fecha de encargo. Si se quiere ser más específico el historial contará con un filtro adaptado al historial.
 
-### Usuario (Administrador)
+### Administrador
 
-- Creación, aumento, modificación y "eliminación", el adminitrador cuenta con la capacidad de alterar todo lo relacionado a los productos, algunas tales como el apartdo para creacion de productos, opciones adicionales en la lista de producos de la pagina principal y la adición de mas unidades de un producto que se haya acabado.
+- Los administradores cuenta con la capacidad de alterar todo lo relacionado a los productos, esto se logra a través de vistas especiales y más elementos interactivos en otras vistas (modo administrador).
 
-- Creación de noticias relacionadas a la comunidad del proyecto, el administrador al igual que conn los productos sera capaz de subir noticias (descuentos, proximos productos o lanzamientos relacionados a la pagina o al mundo Geek en general, etc).
+- Creación de noticias relacionadas a la comunidad, el administrador al igual que con los productos será capaz de subir noticias (descuentos, lanzamientos o noticias).
 
-- Revision de estadisticas, el administrador podra tener constacia de el progreso que la pagina esta teniendo financieramente, ya sean las categorias en general o las subcategorias o incluso el rendiiento de la pagina en general.
+- Revisión de estadisticas, el administrador podrá tener constacia de el progreso que la aplicación está teniendo financieramente.
 
-## Software y/o metodos manuales existentes
+## Software y/o métodos manuales existentes
 
-Hasta el momento el proyecto cuenta unicamente con una minuciosa documentacion en la cual se especifican el diseño, el comportamiento de la Api, de que forma se va a componer la base de datos, etc.
+### Backend
 
-## Dificultades
+El proyecto cuenta con una API de complejidad media, que cuenta con una gran cantidad de servicios, y una base de datos voluminosa que estructura y almacena la información de forma eficiente.
 
-Algunas de las dificultades que podriamos enfrentar en este proyecto pueden ser:
+El servidor permite el envío de imágenes y datos, y puede devolver información detallada de todos los elementos del sistema, como productos, usuarios y órdenes.
 
-- Desacuerdos relacionados a las partes ya establecidas en el proyecto.
+### Frontend
+
+El frontend cuenta con un intuitivo menú de navegación que permite moverse fluidamente por las diferentes rutas, que están protegidas con roles de usuario y cuentan con la información del mismo una vez este haya iniciado sesión. Las vistas se destacan por sus "modalidades", que permiten la modificación de los elementos presentes en un componente de acuerdo a cosas como el rol de usuario.
+
+En la página principal se pueden filtrar y agregar productos al carrito, en el cual se puede efectuar una orden y realizar la correspondiente transacción.
+
+Adicionalmente, el sitio cuenta con una página de contacto y algunas páginas de información, así como también anuncios y la posibilidad de publicarlos y editarlos por parte de los administradores.
+
+## Documentación
+
+### Descripción
+
+Actualmente hay una documentación muy sólida que contiene artefactos detallados de requerimientos y especificación, referencia, arquitectura y diseño del sistema, incluyendo diagramas y documentando los cambios efectuados en los mismos.
+
+### Dificultades
+
+Algunas de las dificultades en la etapa de documentación fue:
 
 - Aumento de la complejidad del proyecto haciendo que se tenga que repetir la fase en la que se encuentre para que se acople de la mejor manera a los cambios.
 
-- Poca documentación sobre alguna implementación en particular, deja do ese apartado a la imaginación y muy poco detallado.
+- Poca documentación sobre alguna implementación en particular, dejando ese apartado a la imaginación y muy poco detallado.
 
 - Empezar la fase de desarrollo en un tiempo tardío por extenderse con la fase de requerimientos o diseño.
 
-- Implementar una idea mejor en la fase de desarrollo pero que no haya sido documentada en la documentación previa, no seria problema con cambios menores pero si con cambios de gran magnitud.
+- Implementar una idea mejor en la fase de desarrollo pero que no haya sido documentada previamente, lo que obliga a actualizar la documentación.
 
-## Oportunidades de desarollo de Software
+## Oportunidades de desarollo de software
 
-### Tecnologias dispoibles
+### Tecnologías disponibles
 
-El desarrollo va a ser llevado a cabo principalmente por dos tecnologias esenciales, una encargada de frontend y la otra del backend, en el proyecto se va a hacer uso de la libreria React js para el frontend y para el backend se va a hacer uso de Node js y Express js.
+El desarrollo va a ser llevado a cabo principalmente por dos tecnologias esenciales, una encargada de frontend y la otra del backend, en el proyecto se va a hacer uso de la librería React js para el frontend y para el backend se va a hacer uso de Node js y Express js.
 
-### Ventajas 
-
-Las ventajas seran dividias entre las del frontend y el backend.
-
-#### Frontend
-
-- El uso de React para el frontend sera de utilidad ya que los componentes que se hagan pueden ser reutilizados para otras partes del proyecto, no perdiendo tanto tiempo para crear un nuevo componente.
-
-- Los componentes que se vayan creando son perfectamente escalabes, siendo primeramente diseñados para su finalidad principal y posteriormente mejorados.
-
-- Acceso al estado previo de cualquier componente, uti en las situaciones en las que se requiera volver a ver el estado anterior
- 
-#### Backend
-
-c: El apartado de las ventajas del uso de tecnologias para el backend te tocaria a vos ya que aun no poseo tanta experiencia como
-para decir algo
+Las ventajas y desventajas están detalladas en el apartado de criterios de selección.
 
 ## Propuesta
 
@@ -136,12 +168,14 @@ La elección de la alternativa se basa en los criterios del trabajo asignado, a�
 ## Descripción
 
 ### Diseño general
+
 El sistema contará con los siguientes apartados y funcionalidades:
 
 - Visualización y búsqueda de productos.
 - Compra de productos.
 - Actualización de información de productos.
 - Creación de nuevos productos.
+- Creación, autenticación y autorización de usuarios
 - Publicación de noticias.
 - Visualización de estadísticas de ventas.
 - Visualización y Publicación de comentarios.
@@ -149,7 +183,7 @@ El sistema contará con los siguientes apartados y funcionalidades:
 - Contacto a la empresa
 - Información sobre la empresa
 
-Inicialmente, se pueden visualizar productos, buscarlos y filtrarlos de acuerdo a varios criterios, éstos productos pueden ser agregados e un carrito en el que se llevará a cabo el proceso de transacción luego de armar una ordem con los productos seleccionados y especificar los datos de envío. Se pueden visualizar los detalles de un producto haciendo click en el mismo. éstas órdenes pueden ser luego visualizadas en el historial. Los administradores pueden editar y subir productos, además de borrarlos e incrementar o decrementar el stock de los mismos. Al ver los detalles de un producto, los clientes pueden ver comentarios de personas relacionados al producto, y publicar uno ellos mismos. Si tienen alguna consulta o desean comunicarse por alguna cuestión en particular pueden hacerlo desde un correo electrónico provisto en un link en el menu, donde también se puede acceder a información del sitio y la empresa.
+Inicialmente, se pueden visualizar productos, buscarlos y filtrarlos de acuerdo a varios criterios, estos productos pueden ser agregados a un carrito en el que se llevará a cabo el proceso de transacción luego de armar una orden con los productos seleccionados y especificar los datos de envío. Se pueden visualizar los detalles de un producto haciendo click en el mismo. Estas órdenes pueden ser luego visualizadas en el historial. Los administradores pueden editar y subir productos, además de borrarlos e incrementar o decrementar el stock de los mismos. Al ver los detalles de un producto, los clientes pueden ver comentarios de personas relacionados al producto, y publicar uno ellos mismos. Si tienen alguna consulta o desean comunicarse por alguna cuestión en particular pueden hacerlo desde una página de contacto provista en el menú de navegación, donde también se puede acceder a información del sitio y la empresa.
 
 ### Diseño de estructura de datos
 
@@ -161,8 +195,145 @@ Las interfaces de usuario fueron cuidadosamente graficadas y diseñadas con la s
 
 ## Planificación
 
+### Gestión de Riesgos
+Se identificaron los riesgos en una tabla de riesgos, donde se especifica su impacto, probabilidad y respectivos planes de mitigación y prevención.
+
+### División de tareas
 Las tareas serán asignadas dinámicamente entre los dos miembros del equipo, sin embargo, las tareas asignadas serán cuidadosamente seleccionadas para poder ser integradas inmediatamente, agregando una nueva funcionalidad al sistema y contribuyendo a la aceleración del desarrollo de una versión.
 
-### Desarollo
+### Dificultades
 
-...
+- Equipo y división de tareas
+    Al haber evasión, impuntualidad y total falta de comunicación y compromiso por parte de uno de los integrantes del equipo, el desarrollo sufrió cierto retraso, por lo que el reparto de tareas es desigual (si no unilateral). Ésta situación se ve reflejada en el registro de tareas, en una hoja de cálculo guardada en ésta misma carpeta, donde se guarda constancia de las tareas a realizar, los miembros asignados para completarla, una estimación del tiempo requerido que puede ser inexacta en ciertos casos y la definición de fechas de inicio y finalización de tareas, si bien algo apretadas, debido a la escasez de tiempo, aún posibles de cumplir.
+
+- Organización y tiempo
+
+    Como ya fue mencionado, la escasez de tiempo, la desorganización y el misticismo en torno al proyecto implican un mayor tiempo diario de trabajo.
+
+- Falta de experiencia
+
+    Si bien durante las olimpiadas se pudieron fortalecer y adquirir nuevos conocimientos, aún hay muchas cosas que aprender e interiorizar, lo que conlleva un mayor tiempo de desarrollo y prueba.
+
+## Desarollo
+
+#### Ejemplo de código (Backend): Función auxiliar que devuelve los productos
+
+```
+// Auxiliary function that returns data without sending a response
+const returnProducts = (res, id) => {
+
+    return new Promise((resolve, reject) => {
+
+        let sql;
+
+        // Formulate the query based on provided input
+        if (id) {
+
+            id = parseInt(id);
+
+            // Get the row with the specified ID
+            sql = `SELECT * FROM products WHERE id = ${id};`;
+
+        } else {
+            // Get all rows
+            sql = `SELECT * FROM products;`;
+        }
+
+        pool.getConnection((err, conn) => {
+
+            if (err) {
+                console.log(err);
+                return reject({ status: 500, msg: "Connection failed" });
+            }
+
+            // Perform the database query
+            conn.query(sql, (err, rows) => {
+
+                // Release the connection
+                conn.release();
+
+                if (!err) {
+
+                    // Define an asynchronous, immediately invoked function expression
+                    (async () => {
+
+                        // Initialize an array storing the relevant data from each row
+                        const products = await Promise.all(rows.map(async ({ id, name, description, quantity, price, category_id, age_rating_id, country_id }) => {
+
+                            // Make asynchronous calls to auxiliary functions to obtain remaining data
+                            try {
+                                const { categories } = await returnCategories(category_id);
+                                const { age_ratings } = await returnAgeRatings(age_rating_id);
+                                const { countries } = await returnCountries(country_id);
+                                const { series } = await seriesController.returnCollaborations(id);
+                                const { product_images } = await returnProductImages(id);
+                                const { averageRating: rating } = await ratingsController.calculateAverageRating(res, id);
+
+                                // Obtain the category name
+                                const category_name = categories[0].name;
+
+                                let response;
+                                let category_details;
+
+                                // Obtain category details based on the product's category
+                                switch(category_name) {
+
+                                    case "comics":
+
+                                        response = await comicsController.returnCategoryDetails(id);
+
+                                        category_details = response.item;
+
+                                        break;
+
+                                    case "collectibles":
+
+                                        response = await collectiblesController.returnCategoryDetails(id);
+
+                                        category_details = response.item;
+
+                                        break;
+
+                                    case "clothes":
+
+                                        response = await clothesController.returnCategoryDetails(id);
+
+                                        category_details = response.item;
+
+                                        break;
+
+                                }
+
+                                // Process the obtained information
+                                const images = product_images.map((ipth) => baseURL + ipth);
+                                const category = categories[0];
+                                const age_rating = age_ratings[0];
+                                const country = countries[0];
+
+                                // Initialize an object with the relevant data
+                                const obj = { id, name, description, quantity, price, rating, category, category_details, age_rating, country, series, images };
+
+                                return obj;
+
+                            } catch (err) {
+                                console.log(err);
+                                return reject({ status: 500, msg: "Something went wrong" });
+                            }
+
+                        }));
+
+                        return resolve({ status: 200, products });
+
+                    })();
+                } else {
+                    console.log(err);
+                    return reject({ status: 500, msg: "Operation failed"});
+                }
+
+            });
+        });
+
+    });
+
+};
+```

@@ -1,10 +1,12 @@
-const Homepage = () => {
+import { ProductList } from "./productList";
+import { useParams } from 'react-router-dom';
 
-    console.log("it works");
+export const Homepage = () => {
+    const { name } = useParams();
 
     return (
-        <h1>This is the Homepage</h1>
+        <div className="page">
+            <ProductList category={name} />
+        </div>
     );
 }
-
-export default Homepage;

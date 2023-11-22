@@ -1,145 +1,95 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
+import { useLogout } from '../hooks/useLogout';
 
-const Header = () => {
+export const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { auth } = useAuth();
+    const logout = useLogout();
+
+    // Obtain the user's role
+    const role = auth?.role || null;
 
     return (
         <>
-            <header className="header window">
-                <nav>
-                    <div class="container rtc">
-                        <div className="c-wrapper">
-                            <Link 
-                            className="h-1 hs"
-                            to="/"
-                            >
-                                JoestarComics
-                            </Link>
-                        </div>
-                        <div className="b-wrapper">
-                            <div className="c-wrapper rtc-s">
+            <header className="header">
+                <div className="wrapper nav-wrapper">
+                    <Link to="/" className="logo">JoestarComics</Link>
+                    <nav className="nav-bar">
+                        { !auth ?
+                            <>
                                 <NavLink 
-                                className={ ({isActive}) => isActive ? 
-                                "cs active" : 
-                                "cs" } 
-                                to="history"
+                                to="signup" 
+                                className={({ isActive }) => isActive ? "activeLink" : "link"}
                                 >
-                                    History
+                                    Sign Up
                                 </NavLink>
                                 <NavLink 
-                                className={ ({isActive}) => isActive ? 
-                                "cs active" : 
-                                "cs" } 
-                                to="profile"
+                                to="signin" 
+                                className={({ isActive }) => isActive ? "activeLink" : "link"}
                                 >
-                                    Profile
+                                    Sign In
                                 </NavLink>
-                                <span
-                                className={ isMenuOpen ? 
-                                "cs active" : 
-                                "cs" }
-                                onClick={ () => setIsMenuOpen(!isMenuOpen) }
+                            </>
+                        : role === "customer" ?
+                            <>
+                                <NavLink 
+                                to="cart" 
+                                className={({ isActive }) => isActive ? "activeLink" : "link"}
                                 >
-                                    Menu
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
+                                    Cart
+                                </NavLink>
+                                <span onClick={logout} className="link">Logout</span>
+                            </>
+                        : role === "admin" &&
+                            <>
+                                <span onClick={logout} className="link">Logout</span>
+                            </>
+                        }
+                        <span 
+                        onClick={() => setIsMenuOpen(!isMenuOpen)} 
+                        className={ isMenuOpen ? "activeLink" : "link"}>
+                            Menu
+                        </span>
+                    </nav>
+                </div>
             </header>
-            { isMenuOpen ? 
-            <div className="menu window">
-                <nav>
-                    <div className="container rtc">
-                        <div className="gtf">
-                            <div className="column">
-                                <h3 className="h-3">Categories</h3>
-                                <NavLink 
-                                className={ ({isActive}) => isActive ? 
-                                "cs active" : 
-                                "cs" } 
-                                to="clothes"
-                                >
-                                    Clothes
-                                </NavLink>
-                                <NavLink 
-                                className={ ({isActive}) => isActive ? 
-                                "cs active" : 
-                                "cs" } 
-                                to="collectibles"
-                                >
-                                    Collectibles
-                                </NavLink>
-                                <NavLink 
-                                className={ ({isActive}) => isActive ? 
-                                "cs active" : 
-                                "cs" } 
-                                to="comics"
-                                >
-                                    Comics
-                                </NavLink>
-                            </div>
-                            <div className="column">
-                                <h3 className="h-3">Information</h3>
-                                <NavLink 
-                                className={ ({isActive}) => isActive ? 
-                                "cs active" : 
-                                "cs" } 
-                                to="about"
-                                >
-                                    About Us
-                                </NavLink>
-                                <NavLink 
-                                className={ ({isActive}) => isActive ? 
-                                "cs active" : 
-                                "cs" } 
-                                to="guidelines"
-                                >
-                                    Guidelines
-                                </NavLink>
-                                <NavLink 
-                                className={ ({isActive}) => isActive ? 
-                                "cs active" : 
-                                "cs" } 
-                                to="contact"
-                                >
-                                    Contact Us
-                                </NavLink>
-                            </div>
-                            <div className="column">
-                                <h3 className="h-3">Anouncements</h3>
-                                <NavLink 
-                                className={ ({isActive}) => isActive ? 
-                                "cs active" : 
-                                "cs" } 
-                                to="anouncements:releases"
-                                >
-                                    Releases
-                                </NavLink>
-                                <NavLink 
-                                className={ ({isActive}) => isActive ? 
-                                "cs active" : 
-                                "cs" } 
-                                to="anouncements:discounts"
-                                >
-                                    Discounts
-                                </NavLink>
-                                <NavLink 
-                                className={ ({isActive}) => isActive ? 
-                                "cs active" : 
-                                "cs" } 
-                                to="anouncements:news"
-                                >
-                                    News
-                                </NavLink>
-                            </div>
-                        </div>
+            { isMenuOpen &&
+            <div className="menu">
+                <div className="wrapper">
+                    <div className="menu-wrapper">
+                        <nav className="nav-list">
+                            <h3 className="title-3">Categories</h3>
+                            <NavLink
+                            to="/category/comics" 
+                            className={({ isActive }) => isActive ? "activeLink" : "link"}>
+                                Comics
+                            </NavLink>
+                            <NavLink
+                            to="/category/collectibles" 
+                            className={({ isActive }) => isActive ? "activeLink" : "link"}>
+                                Collectibles
+                            </NavLink>
+                            <NavLink
+                            to="/category/clothes" 
+                            className={({ isActive }) => isActive ? "activeLink" : "link"}>
+                                Clothes
+                            </NavLink>
+                        </nav>
+                        { role === "admin" && 
+                        <nav className="nav-list">
+                            <h3 className="title-3">Admin</h3>
+                            <NavLink
+                            to="products/upload" 
+                            className={({ isActive }) => isActive ? "activeLink" : "link"}>
+                                Add products
+                            </NavLink>
+                        </nav>
+                        }
                     </div>
-                </nav>
-            </div> : null }
+                </div>
+            </div> }
         </>
     );
 }
-
-export default Header;
